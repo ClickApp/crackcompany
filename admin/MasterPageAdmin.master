@@ -1,0 +1,32 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPageAdmin.master.cs" Inherits="admin_MasterPageAdmin" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Crack Company - Administraci&oacute;n</title>
+    <link href="../styles/estilo.css" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" type="image/x-icon" href="../images/favicon.ico" />
+    <asp:ContentPlaceHolder id="head" runat="server">        
+    </asp:ContentPlaceHolder>
+</head>
+<body>    
+    <div id="div_cabecera">
+        <div class="div_centrado">
+            <div id="divMenuIzqda"></div>
+                <img src="../images/CrackCompany.png" alt="Crack Company" title="Crack Company" border="0" />
+            <div id="divMenuDcha"></div>            
+        </div>
+    </div>
+    <div class="div_centrado">
+        <br /><br />
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+            
+
+        </asp:ContentPlaceHolder>
+    </div>
+    <div id="div_pie">
+        Original idea. Copyright &copy; <b>All Rights Reserved</b>
+    </div>   
+</body>
+</html>

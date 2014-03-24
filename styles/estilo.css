@@ -1,0 +1,136 @@
+﻿/* CSS Document */
+
+/* Fuentes*/
+
+@font-face {font-family: "Alte"; src: url(../fonts/AlteHaasGroteskRegular.ttf) format("truetype");}
+@font-face {font-family: "Alte2"; src: url(../fonts/AlteHaasGroteskRegular.eot)}
+@font-face {font-family: "Mission"; src: url(../fonts/Mission-Script.ttf) format("truetype");}
+@font-face {font-family: "Mission2"; src: url(../fonts/Mission-Script.eot)}
+
+/* fin Fuentes*/
+
+/* General */
+
+body
+{
+	font-size:14px;
+	font-family:Alte,Alte2;
+	background-color:#F3F3F3; 
+	height:auto;
+	padding:0px 0px 0px 0px;
+	margin:0px 0px 0px 0px;
+	text-align:justify;	    
+}	
+
+/* fin General */
+
+/* Capas */
+
+.div_centrado
+{
+	margin:auto;
+	width: 1024px;
+	z-index:1;	
+}
+		
+#div_cabecera
+{
+    width:100%;
+    height:115px;
+    background-color:#FFFFFF;
+    text-align:center;
+    padding-top:45px; 
+    padding-bottom:45px; 
+    border-bottom:#8A8A8A 2px solid;        
+}
+
+#divMenuIzqda
+{
+    float:left;    
+}
+
+#divMenuDcha
+{
+    float:right;    
+}
+
+#div_pie
+{
+    bottom:0px;
+    position:fixed;
+    width:100%;
+    height:30px;
+    font-size:11px;
+    text-align:center;    
+    z-index:10;           
+}
+
+.divCentrado
+{
+    text-align:center;    
+}
+
+/* fin Capas */
+
+/* Textos */
+
+.texto_rojo
+{
+    color:#990000;    
+}
+
+/* fin Textos */
+
+/* Formularios */
+
+.boton
+{
+	color:#FFFFFF;
+	font-size:28px;
+	font-family:Mission,Mission2;
+	-webkit-border-radius: 28px;
+	border-radius: 50px;
+	height:80px;
+	width:80px;
+	padding:0px 8px; 
+	background:#000000;
+	cursor:pointer; 
+	outline:none;
+}
+
+.boton:hover
+{
+    color:#FFFFFF;
+    font-size:28px;
+	font-family:Mission,Mission2;
+	-webkit-border-radius: 28px;
+	border-radius: 50px;
+	height:80px;
+	width:80px;	
+	padding:0px 8px; 
+	background:#00C76E;
+	cursor:pointer; 
+	outline:none;
+}
+
+.formulario
+{
+    font-family:Arial;
+	font-size:14px;
+	color:#BDBDBD;
+	border:#BDBDBD solid 1px;
+	background:#FFFFFF;	
+	outline:none;
+}
+
+.formulario:focus
+{
+    font-family:Arial;
+    font-size:14px;
+	color:#000000;
+    border:#000000 solid 1px;
+    background:#FFFFFF;	
+    outline:none;
+}
+
+/* fin formularios*/
