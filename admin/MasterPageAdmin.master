@@ -14,7 +14,8 @@
     <div id="div_cabecera">
         <div class="div_centrado">
             <div id="divMenuIzqda">
-                <a href="#" class="links">Buscar Proyecto</a><br />
+                <a href="Default.aspx" class="links">Buscar Proyecto</a><br />
+                <a href="nuevoProyecto.aspx" class="links">Nuevo Proyecto</a><br />
                 <a href="#" class="links">Newsletter</a>
             </div>
             <div id="divMenuCentro"><img src="../images/CrackCompany.png" alt="Crack Company" title="Crack Company" border="0" /></div>

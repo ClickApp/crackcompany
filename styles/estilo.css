@@ -89,8 +89,8 @@ body
 
 .caja_logo
 {
-    float:left;
-    padding:7px;
+    float:left;    
+    padding-right:100px;
     width:200px;    
 }
 
@@ -106,7 +106,7 @@ body
 .titulo
 {
     font-family:Times New Roman;
-    font-size:32px;    
+    font-size:38px;    
 }
 
 .subtitulo
@@ -213,3 +213,34 @@ A.linksRojo:hover
 }
 
 /* fin formularios*/
+
+/* PopUps */
+
+    /* General */
+    
+    .modalBackground
+    {
+        background-color:#000000;
+        filter:alpha(opacity=40);
+        opacity:0.5;                  
+    }    
+    
+    .div_TituloVentana
+    {
+        float:right;
+        margin-top:5px;
+        margin-right:5px;            
+    }      
+          
+    /* fin General */
+    
+    /* Clases PopUps */
+    
+    .ModalWindow
+    {
+        border: #000000 3px solid;
+        background:#F3F3F3;
+        position:absolute;         
+    }    
+
+    /* fin Clases PopUps */
