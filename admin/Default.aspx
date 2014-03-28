@@ -38,7 +38,7 @@
         var boton = document.getElementById('<%=btnGestionarIconos.ClientID%>');
         boton.click();
     }
-
+       
 </script>
 
 <form id="form1" runat="server">
@@ -50,7 +50,10 @@
 </div>
 
 <div class="divCentrado">    
-    <br /><br />
+    <audio id="beep-two" controls preload="auto" style="display:none;">
+		<source src="../audio/beep.mp3" controls></source>
+		<source src="../audio/beep.ogg" controls></source>				
+	</audio>            
     <asp:Repeater ID="rpProyectos" runat="server">
         <ItemTemplate>
             <div class="caja_logo">
@@ -62,16 +65,37 @@
                 </tr>                
             </table>
             <br />
-            <img id="imgLogo" src="../logos/logo_gris_<%#DataBinder.Eval(Container.DataItem, "PROYECTO_ID").ToString()%>.png" alt="<%#DataBinder.Eval(Container.DataItem, "TITULO").ToString()%>" title="<%#DataBinder.Eval(Container.DataItem, "TITULO").ToString()%>" border="0" width="100%" onmouseover="this.src='../logos/logo_<%#DataBinder.Eval(Container.DataItem, "PROYECTO_ID").ToString()%>.png';javascript:visible(<%#DataBinder.Eval(Container.DataItem, "PROYECTO_ID").ToString()%>);" onmouseout="this.src='../logos/logo_gris_<%#DataBinder.Eval(Container.DataItem, "PROYECTO_ID").ToString()%>.png';javascript:ocultar(<%#DataBinder.Eval(Container.DataItem, "PROYECTO_ID").ToString()%>);" style="vertical-align:middle;outline:none;cursor:pointer;" onclick="javascript:gestionarLogos(<%#DataBinder.Eval(Container.DataItem, "PROYECTO_ID").ToString()%>);"/>
+            <a href="#" style="oultine:none;"><img id="imgLogo" src="../logos/logo_gris_<%#DataBinder.Eval(Container.DataItem, "PROYECTO_ID").ToString()%>.png" alt="<%#DataBinder.Eval(Container.DataItem, "TITULO").ToString()%>" title="<%#DataBinder.Eval(Container.DataItem, "TITULO").ToString()%>" border="0" width="100%" onmouseover="this.src='../logos/logo_<%#DataBinder.Eval(Container.DataItem, "PROYECTO_ID").ToString()%>.png';javascript:visible(<%#DataBinder.Eval(Container.DataItem, "PROYECTO_ID").ToString()%>);" onmouseout="this.src='../logos/logo_gris_<%#DataBinder.Eval(Container.DataItem, "PROYECTO_ID").ToString()%>.png';javascript:ocultar(<%#DataBinder.Eval(Container.DataItem, "PROYECTO_ID").ToString()%>);" style="vertical-align:middle;outline:none;cursor:pointer;" onclick="javascript:gestionarLogos(<%#DataBinder.Eval(Container.DataItem, "PROYECTO_ID").ToString()%>);"/></a>
             <br /><br />
             <div id="div_<%#DataBinder.Eval(Container.DataItem, "PROYECTO_ID").ToString()%>" style="display:none;">
-            <%#DataBinder.Eval(Container.DataItem, "TITULO").ToString()%><br />
-            <%#DataBinder.Eval(Container.DataItem, "SUBTITULO").ToString()%>
+            <span class="titulo_caja_logo"><%#DataBinder.Eval(Container.DataItem, "TITULO").ToString()%></span><br />
+            <span class="subtitulo_caja_logo"><%#DataBinder.Eval(Container.DataItem, "SUBTITULO").ToString()%></span>
             </div>    
             </div>            
         </ItemTemplate>          
-    </asp:Repeater>    
+    </asp:Repeater>        
 </div>
+
+<script type="text/javascript">    
+
+    $("a").each(function (i) {
+        if (i != 0) {
+            $("#beep-two")
+            .clone()
+            .attr("id", "beep-two" + i)
+            .appendTo($(this).parent());        
+        }
+        
+        $(this).data("beeper", i);
+    })
+
+    .mouseenter(function () {
+        $("#beep-two" + $(this).data("beeper"))[0].play();
+    });
+
+    $("#beep-two").attr("id", "beep-two0");
+
+</script>
 
 <div style="display:none;">
     <input type="hidden" id="hidPID" runat="server" />

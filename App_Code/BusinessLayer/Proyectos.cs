@@ -128,6 +128,21 @@ public class Proyectos
         return existe;
     }
 
+    //Función que me devuelve el Id de un proyecto apsado su titulo    
+    public String dameIdProyecto(string titulo)
+    {
+        string valdev = string.Empty;
+
+        SqlCommand cmd = new SqlCommand();
+        SqlParameter sqlPar = null;
+        sqlPar = cmd.Parameters.Add("@TITULO", SqlDbType.VarChar, 200);
+        sqlPar.Value = titulo;
+
+        valdev = con.execProcedureValor(cmd, "spr_ExisteProyecto");
+
+        return valdev;
+    }
+
     //Función que activa o desactiva un proyecto
     public void activarProyecto(int proyectoId, bool activa)
     {

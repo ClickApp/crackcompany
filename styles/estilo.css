@@ -90,7 +90,7 @@ body
 .caja_logo
 {
     float:left;    
-    padding-right:100px;
+    padding:28px;
     width:200px;    
 }
 
@@ -124,6 +124,18 @@ body
     padding:5px;
     margin-bottom:20px; 
     text-align:center;        
+}
+
+.titulo_caja_logo
+{
+    font-family:Times New Roman;
+    font-size:26px;    
+}
+
+.subtitulo_caja_logo
+{
+    font-family:Alte,Alte2;
+    font-size:14px;    
 }
 
 /* fin Textos */

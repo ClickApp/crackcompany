@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Crack Company - Administraci&oacute;n" Language="C#" MasterPageFile="~/admin/MasterPageAdmin.master" AutoEventWireup="true" ValidateRequest="false" CodeFile="nuevoProyecto.aspx.cs" Inherits="admin_nuevoProyecto" %>
+﻿<%@ Page Title="Crack Company - Administraci&oacute;n" Language="C#" MasterPageFile="~/admin/MasterPageAdmin.master" AutoEventWireup="true" ValidateRequest="false" CodeFile="editarProyecto.aspx.cs" Inherits="admin_editarProyecto" %>
 
 <%@ Register TagPrefix="FTB" Namespace="FreeTextBoxControls" Assembly="FreeTextBox" %>
 
@@ -15,6 +15,15 @@
 
         var boton = document.getElementById('<%=btnBorrarFoto.ClientID%>');
         boton.click();
+    }
+
+    function BorrarLogo(pid) {
+
+        var objLogo = document.getElementById('<%=hidLogo.ClientID%>');
+        objLogo.value = pid;
+
+        var boton = document.getElementById('<%=btnBorrarLogo.ClientID%>');
+        boton.click();
     }    
 
 </script>
@@ -26,9 +35,10 @@
 <h1 align="center">Nuevo Proyecto</h1>
     
     <asp:Literal ID="LParcial" runat="server"></asp:Literal>
-
+    
     <div id="divTitulos" runat="server">
         <table align="center" width="550px">
+            <tr><td colspan="3">&nbsp;</td></tr>
             <tr>
                 <td><b>T&iacute;tulo Castellano</b>&nbsp;<span class="texto_rojo">(*)</span></td>
                 <td rowspan="7" width="5px">&nbsp;</td>
@@ -67,10 +77,11 @@
             <tr>
                 <td><b>Logo</b>&nbsp;<span class="texto_rojo">(*)</span></td>
                 <td width="5px">&nbsp;</td>
-                <td><asp:FileUpload ID="txtLogo" runat="server" CssClass="formulario" Width="350px"/></td>                
+                <td id="celdaSubirLogo" runat="server"><asp:FileUpload ID="txtLogo" runat="server" CssClass="formulario" Width="350px"/></td>    
+                <td id="celdaLogo" runat="server"><asp:Literal ID="LitLogo" runat="server"></asp:Literal></td>            
             </tr>
             <tr><td colspan="3">&nbsp;</td></tr>
-            <tr><td colspan="3">El logo se redimensiona a un tama&ntilde;o de 250x250px. Se recomienda subir im&aacute;genes centradas y encuadradas en un lienzo de estas dimensiones, que conserve un margen razonable, para que no se distorsionen. </td></tr>
+            <tr id="fila_Explicacion" runat="server"><td colspan="3">El logo se redimensiona a un tama&ntilde;o de 250x250px. Se recomienda subir im&aacute;genes centradas y encuadradas en un lienzo de estas dimensiones, que conserve un margen razonable, para que no se distorsionen. </td></tr>
             <tr id="fila_blanco2" runat="server"><td colspan="3">&nbsp;</td></tr>
             <tr id="fila_error2" runat="server">
                 <td colspan="3" class="fila_error">
@@ -127,7 +138,9 @@
     <div style="display:none;">
         <input type="hidden" runat="server" id="hidPID" />
         <input type="hidden" id="hidURL" runat="server" />
-        <asp:Button ID="btnBorrarFoto" runat="server" OnClick="btnBorrarFoto_Click"/>       
+        <input type="hidden" runat="server" id="hidLogo" />
+        <asp:Button ID="btnBorrarFoto" runat="server" OnClick="btnBorrarFoto_Click"/> 
+        <asp:Button ID="btnBorrarLogo" runat="server" OnClick="btnBorrarLogo_Click"/>       
     </div>
 
 </div>
