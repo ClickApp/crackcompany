@@ -19,6 +19,7 @@ public partial class admin_Default : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         this.CargarProyectos();
+        this.panConfirmacion.Style.Add(HtmlTextWriterStyle.Display, "none");
     }
 
     private void CargarProyectos() 
@@ -37,6 +38,7 @@ public partial class admin_Default : System.Web.UI.Page
             else
                 titulo = "%";
             
+            //Obtengo los proyectos
             DataSet ds = new DataSet();
             ds = proyecto.dameProyectos(titulo,2);
 
@@ -48,6 +50,16 @@ public partial class admin_Default : System.Web.UI.Page
             }
             else
                 objUtils.cargarDatos(null, rpProyectos);
+        
+            //Si todo correcto, mostramos los datos en el Grid
+            if (ds.Tables["DATOS"].Rows.Count > 0)
+            {
+                //Mostramos los resultados obtenidos
+                objUtils.cargarDatos(ds, rpContenido);
+            }
+            else
+                objUtils.cargarDatos(null, rpContenido);
+
         }
         catch (Exception e) { string resultado = e.Message; }
 

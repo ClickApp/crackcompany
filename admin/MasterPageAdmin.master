@@ -6,8 +6,7 @@
 <head runat="server">
     <title>Crack Company - Administraci&oacute;n</title>
     <link href="../styles/estilo.css" rel="stylesheet" type="text/css" />
-    <link rel="shortcut icon" type="image/x-icon" href="../images/favicon.ico" />
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="../images/favicon.ico" />    
     <asp:ContentPlaceHolder id="head" runat="server">        
     </asp:ContentPlaceHolder>
 </head>
