@@ -96,6 +96,14 @@ body
     width:200px;        
 }
 
+.caja_logo_web
+{
+    float:left;    
+    padding:28px;
+    height:230px;    
+    width:200px;        
+}
+
 #divLogos
 {
     z-index:1;        

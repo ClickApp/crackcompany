@@ -87,9 +87,9 @@
     <ItemTemplate>
         <div id="<%#DataBinder.Eval(Container.DataItem, "TITULO").ToString()%>" class="panelAdmin">
             <div class="div_centrado">
-            <div class="div_TituloVentana">
-                <a href="#" style="outline"><img src="../images/btnCerrar.png" height="22" width="22" runat="server" id="imgCerrar" alt="Cerrar" onmouseover="this.src='../images/btnCerrarAct.png';" onmouseout="this.src='../images/btnCerrar.png';" style="cursor:pointer;" /></a>                
-            </div>
+                <div class="div_TituloVentana">
+                    <a href="#" style="outline"><img src="../images/btnCerrar.png" height="22" width="22" runat="server" id="imgCerrar" alt="Cerrar" onmouseover="this.src='../images/btnCerrarAct.png';" onmouseout="this.src='../images/btnCerrar.png';" style="cursor:pointer;" /></a>                
+                </div>
                 <br />
                 <table>
                     <tr>

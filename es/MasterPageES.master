@@ -4,17 +4,32 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>Crack Company - Administraci&oacute;n</title>
+    <link href="../styles/estilo.css" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" type="image/x-icon" href="../images/favicon.ico" /> 
     <asp:ContentPlaceHolder id="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
-    <form id="form1" runat="server">
-    <div>
+    <div id="div_cabecera">
+        <div class="div_centrado">
+            <div id="divMenuIzqda">
+                <a href="about.aspx" class="links">About</a><br />
+                <a href="contact.aspx" class="links">Contact</a>
+            </div>
+            <div id="divMenuCentro"><img src="../images/CrackCompany.png" alt="Crack Company" title="Crack Company" border="0" /></div>
+            <div id="divMenuDcha"><img src="../images/ingles.png" alt="English" title="English" border="0" /></div>            
+        </div>
+    </div>
+    <div class="div_centrado">
+        <br /><br />
         <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
-        
+            
+
         </asp:ContentPlaceHolder>
     </div>
-    </form>
+    <div id="div_pie">
+        Original idea. Copyright &copy; <b>All Rights Reserved</b>
+    </div>       
 </body>
 </html>
