@@ -26,15 +26,6 @@ public class Historico
 		
 	}
 
-    ////Función que añade un nuevo emailo a las newsletter de nuestra BD
-    //public void AnadirNewsletter(string email, string nombre, int tipo)
-    //{
-    //    string newsletterId = con.execValor("SELECT NEWSLETTER_ID FROM NEWSLETTER WHERE EMAIL='" + email + "'");
-
-    //    if(newsletterId == "-10000")
-    //        con.execVoid("spr_AnadirNewsletter '" + email + "','" + nombre + "'," + tipo + "");
-    //}    
-
     ////Función que me devuelve el listado de contactos de la newsletter
     //public DataTable dameListadoNewsletter(string nombre, string email, int origen)
     //{
@@ -128,15 +119,7 @@ public class Historico
     //    }
 
     //    return valdev;        
-    //}
-
-    ////Función que me devuelve el id de un contacto de la newsletter pasado su email 
-    //public String dameIdNewsletter(string email)
-    //{
-    //    string valdev = string.Empty;
-    //    valdev = con.execValor("SELECT NEWSLETTER_ID FROM NEWSLETTER WHERE EMAIL='" + email + "'");
-    //    return valdev;
-    //}
+    //}   
 
     ////Función que modifica una categoria de la base de datos
     //public void modificarNewsletter(int newsletterId, string email, string nombre, int origen)
@@ -181,4 +164,36 @@ public class Historico
         return ds;
     }
 
+    //Función que añade un nuevo email a la newsletter de nuestra BD
+    public void anadirNewsletter(string nombre, string email)
+    {
+        string newsletterId = dameIdNewsletter(email);
+
+        if (newsletterId == "-10000")
+        {
+            SqlCommand cmd = new SqlCommand();
+            SqlParameter sqlPar = null;
+            sqlPar = cmd.Parameters.Add("@NOMBRE", SqlDbType.VarChar, 150);
+            sqlPar.Value = nombre;
+            sqlPar = cmd.Parameters.Add("@EMAIL", SqlDbType.VarChar, 60);
+            sqlPar.Value = email;
+
+            con.execProcedureVoid(cmd, "spr_AnadirNewsletter");
+        }
+    }
+
+    //Función que me devuelve el id de un contacto de la newsletter pasado su email 
+    public String dameIdNewsletter(string email)
+    {
+        string valdev = string.Empty;
+        
+        SqlCommand cmd = new SqlCommand();
+        SqlParameter sqlPar = null;
+        sqlPar = cmd.Parameters.Add("@EMAIL", SqlDbType.VarChar, 60);
+        sqlPar.Value = email;
+
+        valdev = con.execProcedureValor(cmd, "spr_dameIdNewsletter");
+
+        return valdev;
+    }
 }

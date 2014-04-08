@@ -18,7 +18,7 @@ public class Utilidades
 		
 	}
 
-    #region traducciones
+    #region Traducciones
 
     public String traduceActivoDesactivo(bool activo)
     {
@@ -60,6 +60,16 @@ public class Utilidades
         //Cargamos los datos en el repeater
         datos.DataSource = dt;
         datos.DataBind();
+    }
+
+    #endregion
+
+    #region Validaciones
+
+    //Función que valida si un email es correcto
+    public bool ValidaEmail(string strEmail)
+    {
+        return Regex.IsMatch(strEmail, @"^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})$");
     }
 
     #endregion

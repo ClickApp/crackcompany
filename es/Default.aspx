@@ -21,7 +21,8 @@
         obj.style.display = "none";
     }
 
-    function mostrarDetalles(pid,tit,subtit,des) {
+    function mostrarDetalles(pid, tit, subtit, des) {        
+        document.body.style.backgroundColor = '#F3F3F3';
         var objLogo = document.getElementById('LitLogoPeq');
         objLogo.innerHTML = "<img src=\"../logos/logo_" + pid + ".png\" alt=\"" + tit + "\" width=\"48px\" border=\"0\"/>";
         var objTit = document.getElementById('LitTitulo');
@@ -29,7 +30,7 @@
         var objSub = document.getElementById('LitSubTitulo');
         objSub.innerHTML = subtit;
         var objDes = document.getElementById('LitDescripcion');
-        objDes.innerHTML = des;
+        objDes.innerHTML = des;                
         var boton = document.getElementById('<%=lnkMostrarDetalles.ClientID%>');
         boton.click();
     }    
@@ -49,7 +50,7 @@
         <asp:Repeater ID="rpProyectos" runat="server">
             <ItemTemplate>
                 <div class="caja_logo_web">
-                    <img id="imgLogo" src="../logos/logo_gris_<%#DataBinder.Eval(Container.DataItem, "PROYECTO_ID").ToString()%>.png" alt="<%#DataBinder.Eval(Container.DataItem, "TITULO").ToString()%>" title="<%#DataBinder.Eval(Container.DataItem, "TITULO").ToString()%>" border="0" width="100%" onmouseover="this.src='../logos/logo_<%#DataBinder.Eval(Container.DataItem, "PROYECTO_ID").ToString()%>.png';javascript:visible(<%#DataBinder.Eval(Container.DataItem, "PROYECTO_ID").ToString()%>);" onmouseout="this.src='../logos/logo_gris_<%#DataBinder.Eval(Container.DataItem, "PROYECTO_ID").ToString()%>.png';javascript:ocultar(<%#DataBinder.Eval(Container.DataItem, "PROYECTO_ID").ToString()%>);" onclick="javascript:mostrarDetalles('<%#DataBinder.Eval(Container.DataItem, "PROYECTO_ID").ToString()%>','<%#DataBinder.Eval(Container.DataItem, "TITULO").ToString()%>','<%#DataBinder.Eval(Container.DataItem, "SUBTITULO").ToString()%>','<%#DataBinder.Eval(Container.DataItem, "DESCRIPCION").ToString()%>');" style="vertical-align:middle;outline:none;cursor:pointer;"/>
+                    <a href="#<%#DataBinder.Eval(Container.DataItem, "TITULO").ToString()%>"><img id="imgLogo" src="../logos/logo_gris_<%#DataBinder.Eval(Container.DataItem, "PROYECTO_ID").ToString()%>.png" alt="<%#DataBinder.Eval(Container.DataItem, "TITULO").ToString()%>" title="<%#DataBinder.Eval(Container.DataItem, "TITULO").ToString()%>" border="0" width="100%" onmouseover="this.src='../logos/logo_<%#DataBinder.Eval(Container.DataItem, "PROYECTO_ID").ToString()%>.png';javascript:visible(<%#DataBinder.Eval(Container.DataItem, "PROYECTO_ID").ToString()%>);" onmouseout="this.src='../logos/logo_gris_<%#DataBinder.Eval(Container.DataItem, "PROYECTO_ID").ToString()%>.png';javascript:ocultar(<%#DataBinder.Eval(Container.DataItem, "PROYECTO_ID").ToString()%>);" onclick="javascript:mostrarDetalles('<%#DataBinder.Eval(Container.DataItem, "PROYECTO_ID").ToString()%>','<%#DataBinder.Eval(Container.DataItem, "TITULO").ToString()%>','<%#DataBinder.Eval(Container.DataItem, "SUBTITULO").ToString()%>','<%#DataBinder.Eval(Container.DataItem, "DESCRIPCION").ToString()%>');" style="vertical-align:middle;outline:none;cursor:pointer;"/></a>
                     <br /><br />
                     <div id="div_<%#DataBinder.Eval(Container.DataItem, "PROYECTO_ID").ToString()%>" style="display:none;">
                         <span class="titulo_caja_logo"><%#DataBinder.Eval(Container.DataItem, "TITULO").ToString()%></span><br />
@@ -91,7 +92,7 @@
 
 <div id="divDetalles">   
     <div class="div_TituloVentana">
-        <img src="../images/btnCerrar.png" height="22" width="22" runat="server" id="imgCerrar" alt="Cerrar" onmouseover="this.src='../images/btnCerrarAct.png';" onmouseout="this.src='../images/btnCerrar.png';" style="cursor:pointer;" onclick="return false;" />                
+        <img src="../images/btnCerrar.png" height="22" width="22" runat="server" id="imgCerrar" alt="Cerrar" onmouseover="this.src='../images/btnCerrarAct.png';" onmouseout="this.src='../images/btnCerrar.png';" style="cursor:pointer;" onclick="document.body.style.backgroundColor = '#FFFFFF';history.pushState('estado', 'null', 'http://localhost/crackcompany/es/');"/>                
     </div>
     <br />
     <table>
@@ -127,7 +128,7 @@
                     <FadeOut/>
                 </Parallel>
                 <StyleAction AnimationTarget="divLogos" Attribute="display" Value="none"/>                  
-                <StyleAction AnimationTarget="divDetalles" Attribute="display" Value="block"/>                
+                <StyleAction AnimationTarget="divDetalles" Attribute="display" Value="block"/>                                                                            
                 <Parallel AnimationTarget="divDetalles" Duration=".5" Fps="150">                
                     <Resize Width="1024" />                                                        
                     <FadeIn />

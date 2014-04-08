@@ -10,17 +10,30 @@
     <asp:ContentPlaceHolder id="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body>
+<body>    
+    <asp:Repeater ID="rpProyectos" runat="server">
+        <ItemTemplate>
+            <div id="<%#DataBinder.Eval(Container.DataItem, "TITULO").ToString()%>"></div>   
+        </ItemTemplate>        
+    </asp:Repeater>     
     <div id="div_cabecera">
-        <div class="div_centrado">
-            <div id="divMenuIzqda">
-                <a href="about.aspx" class="links">About</a><br />
-                <a href="contact.aspx" class="links">Contact</a>
-            </div>
-            <div id="divMenuCentro"><img src="../images/CrackCompany.png" alt="Crack Company" title="Crack Company" border="0" /></div>
-            <div id="divMenuDcha"><img src="../images/ingles.png" alt="English" title="English" border="0" /></div>            
+        <div class="div_centrado">           
+            <table width="95%" align="center">
+                <tr>
+                    <td align="left" width="30%" valign="top">
+                        <a href="about.aspx" class="links">About</a><br />
+                        <a href="contact.aspx" class="links">Contact</a>
+                    </td>
+                    <td width="30%">
+                        <img src="../images/CrackCompany.png" alt="Crack Company" title="Crack Company" border="0" />
+                    </td>
+                    <td align="right" width="30%" valign="top">
+                        <a href="../en/"><img src="../images/ingles.png" alt="English" title="English" border="0"/></a>
+                    </td>
+                </tr>
+            </table>         
         </div>
-    </div>
+    </div>    
     <div class="div_centrado">
         <br /><br />
         <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
@@ -30,6 +43,6 @@
     </div>
     <div id="div_pie">
         Original idea. Copyright &copy; <b>All Rights Reserved</b>
-    </div>       
+    </div>          
 </body>
 </html>

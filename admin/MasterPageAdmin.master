@@ -13,16 +13,22 @@
 <body>    
     <div id="div_cabecera">
         <div class="div_centrado">
-            <div id="divMenuIzqda">
-                <a href="Default.aspx" class="links">Buscar Proyecto</a><br />
-                <a href="nuevoProyecto.aspx" class="links">Nuevo Proyecto</a><br />
-                <a href="#" class="links">Newsletter</a>
-            </div>
-            <div id="divMenuCentro"><img src="../images/CrackCompany.png" alt="Crack Company" title="Crack Company" border="0" /></div>
-            <div id="divMenuDcha">
-                Bienvenid@, <%=nombre%><br />
-                <a href="cerrarSession.aspx" class="linksRojo"><img src="images/Desconectar.png" alt="Desconectar" title="Desconectar" width="16px" height="16px" style="vertical-align:middle;" border="0"/>&nbsp;Desconectar</a>
-            </div>            
+             <table width="95%" align="center">
+                <tr>
+                    <td align="left" width="30%" valign="top">
+                        <a href="Default.aspx" class="links">Buscar Proyecto</a><br />
+                        <a href="nuevoProyecto.aspx" class="links">Nuevo Proyecto</a><br />
+                        <a href="#" class="links">Newsletter</a>
+                    </td>
+                    <td width="30%">
+                        <img src="../images/CrackCompany.png" alt="Crack Company" title="Crack Company" border="0" />
+                    </td>
+                    <td align="right" width="30%" valign="top">
+                        Bienvenid@, <%=nombre%><br />
+                        <a href="cerrarSession.aspx" class="linksRojo"><img src="images/Desconectar.png" alt="Desconectar" title="Desconectar" width="16px" height="16px" style="vertical-align:middle;" border="0"/>&nbsp;Desconectar</a>
+                    </td>
+                </tr>
+            </table>          
         </div>
     </div>
     <div class="div_centrado">
