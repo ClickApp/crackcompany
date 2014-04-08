@@ -8,11 +8,23 @@ using System.Data;
 
 public partial class es_MasterPageES : System.Web.UI.MasterPage
 {
+    #region variables
+
+    public string seccion = string.Empty;
+    public string linksOn = "texto_verde";
+    public string linksOff = "links";
+    public string linkAbout = string.Empty;
+    public string linkContact = string.Empty;
+
+    #endregion
+
     #region Carga Página
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        this.CargarProyectos();     
+        this.CargarProyectos();   
+        //Establecemos sección
+        this.EstableceSeccion();
     }
 
     private void CargarProyectos()
@@ -38,6 +50,29 @@ public partial class es_MasterPageES : System.Web.UI.MasterPage
 
         }
         catch (Exception e) { string resultado = e.Message; }
+    }
+
+    #endregion
+
+    #region funciones
+
+    private void EstableceSeccion()
+    {
+        if (seccion == string.Empty)
+        {
+            linkAbout = linksOff;
+            linkContact = linksOff;
+        }
+        else if (seccion == "about")
+        {
+            linkAbout = linksOn;
+            linkContact = linksOff;
+        }
+        else if (seccion == "contact")
+        {
+            linkAbout = linksOff;
+            linkContact = linksOn;
+        }
     }
 
     #endregion

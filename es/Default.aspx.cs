@@ -12,7 +12,13 @@ public partial class es_Default : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        this.CargarProyectos();        
+        if (!Page.IsPostBack)
+        {
+            this.CargarProyectos();
+
+            //Formamos la url amigable
+            ClientScript.RegisterStartupScript(this.GetType(), "myScript", "cargarURL();", true);
+        }
     }
 
     private void CargarProyectos()

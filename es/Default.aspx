@@ -33,14 +33,18 @@
         objDes.innerHTML = des;                
         var boton = document.getElementById('<%=lnkMostrarDetalles.ClientID%>');
         boton.click();
-    }    
+    }
+
+    function cargarURL() {
+        history.pushState('estado', 'null', 'http://localhost/crackcompany/es/');
+    }
 
 </script>
 
 <form id="form1" runat="server">
 <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server" CombineScripts="false" ScriptMode="Release" EnablePartialRendering="true" EnableScriptGlobalization="true" EnableScriptLocalization="true"></asp:ToolkitScriptManager>
 
-<div id="divLogos">
+<div id="divLogos" style="display:none;">
 
     <div class="divCentrado">    
         <audio id="beep-two" controls preload="auto" style="display:none;">
@@ -62,8 +66,6 @@
     </div>
 
 </div>
-
-<div id="divEspacio">&nbsp;</div>
 
 <script type="text/javascript">
 
@@ -90,9 +92,9 @@
     <asp:LinkButton ID="lnkMostrarDetalles" runat="server" OnClientClick="return false;" />
 </div>
 
-<div id="divDetalles">   
+<div id="divDetalles" style="min-height:730px;display:none;">   
     <div class="div_TituloVentana">
-        <img src="../images/btnCerrar.png" height="22" width="22" runat="server" id="imgCerrar" alt="Cerrar" onmouseover="this.src='../images/btnCerrarAct.png';" onmouseout="this.src='../images/btnCerrar.png';" style="cursor:pointer;" onclick="document.body.style.backgroundColor = '#FFFFFF';history.pushState('estado', 'null', 'http://localhost/crackcompany/es/');"/>                
+        <img src="../images/btnCerrar.png" height="22" width="22" runat="server" id="imgCerrar" alt="Cerrar" onmouseover="this.src='../images/btnCerrarAct.png';" onmouseout="this.src='../images/btnCerrar.png';" style="cursor:pointer;" onclick="document.body.style.backgroundColor = '#FFFFFF';javascript:cargarURL();"/>                
     </div>
     <br />
     <table>
@@ -110,11 +112,16 @@
     <label id="LitDescripcion"></label>         
 </div>       
 
+<div id="divPie" style="display:none;">
+    Original idea. Copyright &copy; <b>All Rights Reserved</b>
+</div> 
+
 <asp:AnimationExtender ID="AnimationExtender1" runat="server" TargetControlID="lnkMostrarDetalles">
     <Animations>
         <OnLoad>
             <Sequence AnimationTarget="divDetalles">              
                 <StyleAction AnimationTarget="divDetalles" Attribute="display" Value="none"/>
+                <StyleAction AnimationTarget="divPie" Attribute="display" Value="none"/> 
                 <Parallel AnimationTarget="divDetalles" Duration=".5" Fps="150">                
                     <Resize Width="1024" />                                                        
                     <Scale ScaleFactor="0.05" FontUnit="px" />
@@ -128,11 +135,12 @@
                     <FadeOut/>
                 </Parallel>
                 <StyleAction AnimationTarget="divLogos" Attribute="display" Value="none"/>                  
-                <StyleAction AnimationTarget="divDetalles" Attribute="display" Value="block"/>                                                                            
+                <StyleAction AnimationTarget="divDetalles" Attribute="display" Value="block"/>                                                                                            
                 <Parallel AnimationTarget="divDetalles" Duration=".5" Fps="150">                
                     <Resize Width="1024" />                                                        
                     <FadeIn />
-                </Parallel>                                                                                            
+                </Parallel>                                                                     
+                <StyleAction AnimationTarget="divPie" Attribute="display" Value="block"/>                        
             </Sequence>
         </OnClick>
     </Animations>        
@@ -147,13 +155,37 @@
                     <Scale ScaleFactor="0.05" FontUnit="px" />
                     <FadeOut />
                 </Parallel>                
-                <StyleAction AnimationTarget="divLogos" Attribute="display" Value="block"/> 
+                <StyleAction AnimationTarget="divLogos" Attribute="display" Value="block"/>                  
                 <Parallel AnimationTarget="divLogos" Duration=".5" Fps="150">                                                    
                     <Resize Width="1024" />
                     <FadeIn/>
                 </Parallel>               
+                <StyleAction AnimationTarget="divPie" Attribute="display" Value="block"/>
+                <StyleAction AnimationTarget="divDetalles" Attribute="display" Value="none"/>    
             </Sequence>
         </OnClick>
+    </Animations>        
+</asp:AnimationExtender>
+
+<asp:HiddenField ID="hdnDivLogos" runat="server" />
+<asp:AnimationExtender ID="AnimationExtender3" runat="server" TargetControlID="hdnDivLogos">
+    <Animations>
+        <OnLoad>
+            <Sequence AnimationTarget="divLogos">              
+                <StyleAction AnimationTarget="divLogos" Attribute="display" Value="block"/>                                    
+                <Parallel AnimationTarget="divLogos" Duration=".8" Fps="250">                
+                    <%--<Resize Width="1024" />                                                        
+                    <Scale ScaleFactor="0.05" FontUnit="px" />--%>
+                    <FadeIn />
+                </Parallel>       
+                <StyleAction AnimationTarget="divPie" Attribute="display" Value="block"/> 
+                <Parallel AnimationTarget="divPie" Duration=".5" Fps="150">                
+                    <%--<Resize Width="1024" />                                                        
+                    <Scale ScaleFactor="0.05" FontUnit="px" />--%>
+                    <FadeIn />
+                </Parallel>                                                                         
+            </Sequence>  
+        </OnLoad>            
     </Animations>        
 </asp:AnimationExtender>
 

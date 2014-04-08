@@ -21,11 +21,11 @@
             <table width="95%" align="center">
                 <tr>
                     <td align="left" width="30%" valign="top">
-                        <a href="about.aspx" class="links">About</a><br />
-                        <a href="contact.aspx" class="links">Contact</a>
+                        <a href="about.aspx" class="<%=linkAbout%>">About</a><br />
+                        <a href="contact.aspx" class="<%=linkContact%>">Contact</a>
                     </td>
                     <td width="30%">
-                        <img src="../images/CrackCompany.png" alt="Crack Company" title="Crack Company" border="0" />
+                        <a href="Default.aspx"><img src="../images/CrackCompany.png" alt="Crack Company" title="Crack Company" border="0" style="outline:none;" /></a>
                     </td>
                     <td align="right" width="30%" valign="top">
                         <a href="../en/"><img src="../images/ingles.png" alt="English" title="English" border="0"/></a>
@@ -41,8 +41,8 @@
 
         </asp:ContentPlaceHolder>
     </div>
-    <div id="div_pie">
+   <%-- <div id="divPie">
         Original idea. Copyright &copy; <b>All Rights Reserved</b>
-    </div>          
+    </div>    --%>     
 </body>
 </html>

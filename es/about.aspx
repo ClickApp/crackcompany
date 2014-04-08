@@ -28,20 +28,24 @@ body
     function ocultar(pid) {
         obj = document.getElementById("div_" + pid);
         obj.style.display = "none";
-    }  
+    }
+
+    function cargarURL() {
+        history.pushState('estado', 'null', 'http://localhost/crackcompany/es/');
+    }
 
 </script>
 
 <form id="form1" runat="server">
 <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server" CombineScripts="false" ScriptMode="Release" EnablePartialRendering="true" EnableScriptGlobalization="true" EnableScriptLocalization="true"></asp:ToolkitScriptManager>
     
-    <div id="divAbout">    
+    <div id="divAbout" style="display:none;">    
         <audio id="beep-two" controls preload="auto" style="display:none;">
 		    <source src="../audio/beep.mp3" controls></source>
 		    <source src="../audio/beep.ogg" controls></source>				
 	    </audio>
-        
-        <span class="titulo" style="margin-left:25px;">About</span>   
+       
+        <span class="titulo" style="margin-left:25px;">About<div id="cajaTituloAbout"></div></span>   
         
         <table width="95%" align="center" style="margin-left:20px;">
             <tr><td colspan="4">&nbsp;</td></tr>
@@ -79,17 +83,22 @@ body
                     <p>Aquella noche de 2011, solo &eacute;ramos dos seres balbuzeantes en aquel antro sombr&iacute;o, pero este proyecto lo respalda un <b>espl&eacute;ndido equipo t&eacute;cnico</b> y una trabajada red de colaboradores.</p>
                 </td>               
             </tr>
-            <tr><td colspan="4" height="100px">&nbsp;</td></tr>            
+            <%--<tr><td colspan="4" height="100px">&nbsp;</td></tr> --%>           
         </table> 
-    </div>        
 
-    <div id="BorjaPakrolsky">  
+        <div id="divPie">
+            Original idea. Copyright &copy; <b>All Rights Reserved</b>
+        </div> 
+
+    </div>       
+
+    <div id="BorjaPakrolsky" style="display:none;">  
             
        <div id="fotacaPakrolsky">        
         <img src="../images/pakrolsky.png" height="100%" alt="Borja Pakrolsky" />
        </div>       
        <div class="div_TituloVentanaAbout">
-        <img src="../images/btnCerrar.png" height="22" width="22" runat="server" id="imgCerrar" alt="Cerrar" onmouseover="this.src='../images/btnCerrarAct.png';" onmouseout="this.src='../images/btnCerrar.png';" style="cursor:pointer;" onclick="history.pushState('estado', 'null', 'http://localhost/crackcompany/es/');"/>                
+        <img src="../images/btnCerrar.png" height="22" width="22" runat="server" id="imgCerrar" alt="Cerrar" onmouseover="this.src='../images/btnCerrarAct.png';" onmouseout="this.src='../images/btnCerrar.png';" style="cursor:pointer;" onclick="javascript:cargarURL();"/>                
        </div>
        <div class="div_Textaco">
         <span class="titulo_about">Borja Pakrolsky</span><br />
@@ -119,13 +128,13 @@ body
        </div>
     </div>
 
-    <div id="JavierBidezabal">
+    <div id="JavierBidezabal" style="display:none;">
        
        <div id="fotacaBidezabal">
         <img src="../images/bidezabal.png" height="100%" alt="Javier Bidezabal" />
        </div>
        <div class="div_TituloVentanaAbout">
-        <img src="../images/btnCerrar.png" height="22" width="22" runat="server" id="imgCerrar2" alt="Cerrar" onmouseover="this.src='../images/btnCerrarAct.png';" onmouseout="this.src='../images/btnCerrar.png';" style="cursor:pointer;" onclick="history.pushState('estado', 'null', 'http://localhost/crackcompany/es/');"/>                
+        <img src="../images/btnCerrar.png" height="22" width="22" runat="server" id="imgCerrar2" alt="Cerrar" onmouseover="this.src='../images/btnCerrarAct.png';" onmouseout="this.src='../images/btnCerrar.png';" style="cursor:pointer;" onclick="javascript:cargarURL();"/>                
        </div>
        <div class="div_Textaco">
         <span class="titulo_about">Javier Bidezabal</span><br />
@@ -181,8 +190,7 @@ body
                         <%--<Resize Width="1024" />                                                        
                         <Scale ScaleFactor="0.05" FontUnit="px" />--%>
                         <FadeIn />
-                    </Parallel> 
-                    <ScriptAction Script="history.pushState('estado', 'null', 'http://localhost/crackcompany/es/');" />                                                              
+                    </Parallel>                                                                            
                 </Sequence>  
             </OnLoad>
             <OnClick>
@@ -190,7 +198,8 @@ body
                     <Parallel AnimationTarget="divAbout" Duration=".5" Fps="150">                                                    
                         <FadeOut/>
                     </Parallel>
-                    <StyleAction AnimationTarget="divAbout" Attribute="display" Value="none"/>                  
+                    <StyleAction AnimationTarget="divAbout" Attribute="display" Value="none"/>  
+                    <StyleAction AnimationTarget="divPie" Attribute="display" Value="none"/>                
                     <StyleAction AnimationTarget="BorjaPakrolsky" Attribute="display" Value="block"/>                                                                            
                     <Parallel AnimationTarget="BorjaPakrolsky" Duration=".5" Fps="150">                
                         <%--<Resize Width="1024" /> --%>                                                       
@@ -210,8 +219,7 @@ body
                        <%-- <Resize Width="1024" />                                                        
                         <Scale ScaleFactor="0.05" FontUnit="px" />--%>
                         <FadeIn />
-                    </Parallel>       
-                    <ScriptAction Script="history.pushState('estado', 'null', 'http://localhost/crackcompany/es/');" />                                                          
+                    </Parallel>                                                                            
                 </Sequence>  
             </OnLoad>
             <OnClick>
@@ -219,7 +227,8 @@ body
                     <Parallel AnimationTarget="divAbout" Duration=".5" Fps="150">                                                    
                         <FadeOut/>
                     </Parallel>
-                    <StyleAction AnimationTarget="divAbout" Attribute="display" Value="none"/>                  
+                    <StyleAction AnimationTarget="divAbout" Attribute="display" Value="none"/>  
+                    <StyleAction AnimationTarget="divPie" Attribute="display" Value="none"/>                 
                     <StyleAction AnimationTarget="JavierBidezabal" Attribute="display" Value="block"/>                                                                            
                     <Parallel AnimationTarget="JavierBidezabal" Duration=".5" Fps="150">                
                         <%--<Resize Width="1024" />    --%>                                                    
@@ -240,6 +249,7 @@ body
                         <FadeOut />
                     </Parallel>                
                     <StyleAction AnimationTarget="divAbout" Attribute="display" Value="block"/> 
+                    <StyleAction AnimationTarget="divPie" Attribute="display" Value="block"/> 
                     <StyleAction AnimationTarget="BorjaPakrolsky" Attribute="display" Value="none"/> 
                     <Parallel AnimationTarget="divAbout" Duration=".5" Fps="150">                                                    
                        <%-- <Resize Width="1024" />--%>
@@ -260,6 +270,7 @@ body
                         <FadeOut />
                     </Parallel>                
                     <StyleAction AnimationTarget="divAbout" Attribute="display" Value="block"/> 
+                    <StyleAction AnimationTarget="divPie" Attribute="display" Value="block"/> 
                     <StyleAction AnimationTarget="JavierBidezabal" Attribute="display" Value="none"/> 
                     <Parallel AnimationTarget="divAbout" Duration=".5" Fps="150">                                                    
                        <%-- <Resize Width="1024" />--%>
@@ -270,6 +281,21 @@ body
         </Animations>        
     </asp:AnimationExtender>
 
+    <asp:HiddenField ID="hdnDivAbout" runat="server" />
+    <asp:AnimationExtender ID="AnimationExtender5" runat="server" TargetControlID="hdnDivAbout">
+        <Animations>
+            <OnLoad>
+                <Sequence AnimationTarget="divAbout">              
+                    <StyleAction AnimationTarget="divAbout" Attribute="display" Value="block"/>
+                    <Parallel AnimationTarget="divAbout" Duration=".8" Fps="250">                
+                        <%--<Resize Width="1024" />                                                        
+                        <Scale ScaleFactor="0.05" FontUnit="px" />--%>
+                        <FadeIn />
+                    </Parallel>                                                                                     
+                </Sequence>  
+            </OnLoad>            
+        </Animations>        
+    </asp:AnimationExtender>
 </form>
 
 </asp:Content>

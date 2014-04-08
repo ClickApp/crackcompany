@@ -19,6 +19,12 @@ public partial class es_contact : System.Web.UI.Page
             this.filaAcierto.Visible = false;
             this.txtNombre.Focus();
             this.btnEnviar.Enabled = true;
+
+            //Establecemos la sección
+            ((es_MasterPageES)this.Master).seccion = "contact";
+
+            //Formamos la url amigable
+            ClientScript.RegisterStartupScript(this.GetType(), "myScript", "cargarURL();", true);
         }
     }
 

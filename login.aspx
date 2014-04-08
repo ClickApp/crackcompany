@@ -7,6 +7,12 @@
     <title>Crack Company - Actividad Creativa</title>
     <link href="~/styles/estilo.css" rel="stylesheet" type="text/css" />
     <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
+    <style type="text/css">
+        body
+        {	
+	        background-color:#F3F3F3; 	
+        }    
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">

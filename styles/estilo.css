@@ -56,6 +56,17 @@ body
     z-index:10;           
 }
 
+#divPie
+{
+    clear:both;
+    margin:auto;     
+    width:100%;
+    height:30px;
+    font-size:11px;
+    text-align:center;    
+    padding-top:60px;              
+}
+
 .divCentrado
 {
     text-align:center; 
@@ -93,9 +104,26 @@ body
 {
     position:absolute;
     bottom:-200px;
-    height:150px;         
+    height:150px;          
 }
 
+#cajaTituloContact
+{
+    background: #FFFFFF;    
+    width:130px;    
+    height:20px;
+    margin-top:-28px;
+    margin-left:20px;   
+}
+
+#cajaTituloAbout
+{
+    background: #FFFFFF;    
+    width:105px;    
+    height:20px;
+    margin-top:-28px;
+    margin-left:20px;   
+}
 
 /* fin Capas */
 
@@ -113,10 +141,17 @@ body
     color:#990000;    
 }
 
+.texto_verde
+{
+    color:#00C76E;    	 
+	text-decoration:none;
+	outline:none;
+}
+
 .titulo
 {
     font-family:Times New Roman;
-    font-size:38px;    
+    font-size:38px;     
 }
 
 .subtitulo

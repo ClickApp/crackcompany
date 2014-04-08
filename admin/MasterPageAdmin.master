@@ -6,7 +6,13 @@
 <head runat="server">
     <title>Crack Company - Administraci&oacute;n</title>
     <link href="../styles/estilo.css" rel="stylesheet" type="text/css" />
-    <link rel="shortcut icon" type="image/x-icon" href="../images/favicon.ico" />    
+    <link rel="shortcut icon" type="image/x-icon" href="../images/favicon.ico" />   
+    <style type="text/css">    
+        body
+        {	
+	        background-color:#F3F3F3; 	
+        }	    
+    </style> 
     <asp:ContentPlaceHolder id="head" runat="server">        
     </asp:ContentPlaceHolder>
 </head>

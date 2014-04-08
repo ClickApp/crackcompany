@@ -18,12 +18,20 @@ body
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 
+<script type="text/javascript">   
+
+    function cargarURL() {
+        history.pushState('estado', 'null', 'http://localhost/crackcompany/es/');
+    }
+
+</script>
+
 <form id="form1" runat="server">
 <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server" CombineScripts="false" ScriptMode="Release" EnablePartialRendering="true" EnableScriptGlobalization="true" EnableScriptLocalization="true"></asp:ToolkitScriptManager>
 
-    <div id="divContact">    
+    <div id="divContact" style="display:none;">    
                   
-        <span class="titulo" style="margin-left:25px;">Contact</span>   
+        <span class="titulo" style="margin-left:25px;">Contact<div id="cajaTituloContact"></div></span>
         
         <table width="95%" align="center" style="margin-left:20px;font-family:Times New Roman;">
             <tr><td colspan="3">&nbsp;</td></tr>
@@ -83,7 +91,12 @@ body
                 <td align="right"><asp:Button ID="btnEnviar" runat="server" Text="Enviar" CssClass="boton" OnClick="btnEnviar_Click" /></td>
             </tr>             
         </table> 
-    </div>  
+
+        <div id="divPie">
+            Original idea. Copyright &copy; <b>All Rights Reserved</b>
+        </div> 
+
+    </div>
 
     <audio id="beep-two" controls preload="auto" style="display:none;">
 		<source src="../audio/beep.mp3" controls></source>
@@ -110,6 +123,22 @@ body
         $("#beep-two").attr("id", "beep-two0");  
 
     </script>
+
+    <asp:HiddenField ID="hdnDivContact" runat="server" />
+    <asp:AnimationExtender ID="AnimationExtender1" runat="server" TargetControlID="hdnDivContact">
+        <Animations>
+            <OnLoad>
+                <Sequence AnimationTarget="divContact">              
+                    <StyleAction AnimationTarget="divContact" Attribute="display" Value="block"/>
+                    <Parallel AnimationTarget="divContact" Duration=".8" Fps="250">                
+                        <%--<Resize Width="1024" />                                                        
+                        <Scale ScaleFactor="0.05" FontUnit="px" />--%>
+                        <FadeIn />
+                    </Parallel>                                                                                     
+                </Sequence>  
+            </OnLoad>            
+        </Animations>        
+    </asp:AnimationExtender>
 
 </form>
 
